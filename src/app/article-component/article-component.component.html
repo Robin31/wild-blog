@@ -1,11 +1,13 @@
-
-<div class="article">
+<div class="article" *ngIf="isPublished == true">
   <div class="left">
-    <img src="https://static.nationalgeographic.fr/files/styles/image_3200/public/image1_0.jpeg?w=1900&h=1425">
+    <img src={{article.image}}>
   </div>
   <div class="right">
-    <h2>Aled</h2>
-    <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti, autem earum! Aliquid dolores sapiente inventore, assumenda officia adipisci sequi numquam deserunt quisquam ipsam delectus? Velit asperiores dolore quas molestias accusantium?</p>
-    <p class="auteur">Jeanne Osskour</p>
+    <h2>{{article.title}}</h2>
+    <p class="description">{{article.content}}</p>
+    <p class="auteur">{{article.author}}</p>
   </div>
 </div>
+<input type="text" [(ngModel)]="article.comment">
+<button *ngIf="isPublished == false" (click)="showData()">Afficher</button>
+<button *ngIf="isPublished == true" (click)="hideData()">Masquer</button>
