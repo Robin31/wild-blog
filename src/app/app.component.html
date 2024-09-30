@@ -1,2 +1,22 @@
-<h1>Bienvenue dans le Wild Blog de {{ title }}</h1>
-<app-article-component></app-article-component>
+<section>
+  @for (article of articles; track $index) {
+  @if(article.isPublished) {
+  <article [ngClass]="{'aled': article.likes >= 100}">
+    <header>
+      <h2>{{article.title}}</h2>
+      <p>By {{article.author}}</p>
+    </header>
+    <img [src]="article.image">
+    <p>{{article.likes}} likes</p>
+    <footer>
+      <h3>Commentaires</h3>
+      <p [ngStyle]="{color: article.likes > 150 ? 'green' : 'black'}">{{article.comment}}</p>
+    </footer>
+  </article>
+  }
+
+  @else {
+  <p>Il n'y a aucun article publié</p>
+  }
+  }
+</section>
