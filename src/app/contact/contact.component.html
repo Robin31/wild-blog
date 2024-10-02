@@ -4,7 +4,7 @@
   <fieldset>
     <div class="card flex justify-content-center">
       <input id="lastname" name="lastname" type="text" placeholder="Nom" [(ngModel)]="newMessage.lastname"
-        #lastname="ngModel" pInputText minlength="2">
+        #lastname="ngModel" pInputText minlength="2" maxlength="15">
     </div>
     @if (lastname.errors) {
     <div>
@@ -20,7 +20,7 @@
 
   <fieldset class="card flex justify-content-center">
     <input id="firstname" name="firstname" type="text" placeholder="Prénom" [(ngModel)]="newMessage.firstname"
-      #firstname="ngModel" pInputText minlength="2">
+      #firstname="ngModel" pInputText minlength="2" maxlength="15">
     @if (firstname.errors) {
     <div>
       @if (firstname.errors['required']) {
