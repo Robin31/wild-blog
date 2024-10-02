@@ -1,0 +1,68 @@
+<h2>Contact</h2>
+<form #contactForm="ngForm" (ngSubmit)="contactForm.valid && onSubmit()">
+
+  <fieldset>
+    <div class="card flex justify-content-center">
+      <input id="lastname" name="lastname" type="text" placeholder="Nom" [(ngModel)]="newMessage.lastname"
+        #lastname="ngModel" pInputText minlength="2">
+    </div>
+    @if (lastname.errors) {
+    <div>
+      @if (lastname.errors['required']) {
+      <span>Le nom est requis</span>
+      }
+      @if (lastname.errors['minlength']) {
+      <span>La longueur minimale doit être supérieure à 2</span>
+      }
+    </div>
+    }
+  </fieldset>
+
+  <fieldset class="card flex justify-content-center">
+    <input id="firstname" name="firstname" type="text" placeholder="Prénom" [(ngModel)]="newMessage.firstname"
+      #firstname="ngModel" pInputText minlength="2">
+    @if (firstname.errors) {
+    <div>
+      @if (firstname.errors['required']) {
+      <span>Le nom est requis</span>
+      }
+      @if (firstname.errors['minlength']) {
+      <span>La longueur minimale doit être supérieure à 2</span>
+      }
+    </div>
+    }
+  </fieldset>
+
+  <fieldset class="card flex justify-content-center">
+    <input id="email" name="email" type="email" placeholder="Adresse mail" [(ngModel)]="newMessage.email"
+      #email="ngModel" pInputText required email>
+    @if (email.errors) {
+    <div>
+      @if (email.errors['required']) {
+      <span>Le nom est requis</span>
+      }
+      @if (email.errors['minlength']) {
+      <span>La longueur minimale doit être supérieure à 2</span>
+      }
+    </div>
+    }
+  </fieldset>
+
+  <fieldset class="card flex justify-content-center">
+    <textarea id="content" name="content" [(ngModel)]="newMessage.content" #content="ngModel" required
+      minlength="20"></textarea>
+    @if (content.errors) {
+    <div>
+      @if (content.errors['required']) {
+      <span>Le nom est requis</span>
+      }
+      @if (content.errors['minlength']) {
+      <span>La longueur minimale doit être supérieure à 2</span>
+      }
+    </div>
+    }
+  </fieldset>
+  <button pButton pRipple class="p-button-succes" type="reset">Restaurer</button>
+  <button pButton pRipple class="p-button-succes" type="submit">Envoyer</button>
+
+</form>
