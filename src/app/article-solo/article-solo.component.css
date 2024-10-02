@@ -1,0 +1,15 @@
+.article {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.article .left img {
+  height: 300px;
+  width: 400px;
+  margin-left: 2%;
+}
+
+.article .right {
+  max-width: 50%;
+  margin-left: 2%;
+}
