@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { ArticleService } from '../../services/articles.services';
 import { Article } from '../../models/Article';
@@ -23,5 +23,13 @@ export class ArticlePageComponent {
       this.articleId = Number(params.get('id'));
     });
     this.article = this.articleService.getArticleById(this.articleId);
+  }
+
+  @Output()
+  likeEvent: EventEmitter<Article> = new EventEmitter();
+
+  like() {
+    this.article.likes++;
+    this.likeEvent.emit({ ...this.article });
   }
 }

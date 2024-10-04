@@ -33,6 +33,10 @@ export class HomePageComponent {
     ];
   }
   articles: Article[] = inject(ArticleService).getArticles();
+  articlesLiked: Article[] = [];
 
+  handleLike(likedArticle: Article) {
+    this.articlesLiked.push(likedArticle);
+  }
 
 }
