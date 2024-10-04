@@ -1,17 +1,6 @@
-<section>
-  @for (article of articles; track $index){
-  @if(article.isPublished){
-  <div class="article" [routerLink]="['/article', article.id]">
-    <div class="left">
-      <img src={{article.image}}>
-    </div>
-    <div class="right">
-      <h2>{{article.title}}</h2>
-      <p class="description">{{article.content}}</p>
-      <p class="auteur">{{article.author}}</p>
-    </div>
-  </div>
-  }}
-</section>
-<a [routerLink]="['contact']">Formulaire de contact</a>
-<a [routerLink]="['sign-up']">Se connecter</a>
+@for (articleParent of articles; track $index){
+@if(articleParent.isPublished){
+<div [routerLink]="['/article', articleParent.id]">
+  <app-article-solo [article]="articleParent"></app-article-solo>
+</div>
+}}

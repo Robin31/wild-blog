@@ -1,0 +1,30 @@
+<p-menubar [model]="items">
+  <ng-template pTemplate="item" let-item>
+    <ng-container>
+      <a [routerLink]="item.route" class="p-menuitem-link">
+        <span [class]="item.icon"></span>
+        <span class="ml-2">{{ item.label }}</span>
+      </a>
+    </ng-container>
+    <ng-template>
+      <a class="p-menuitem-link">
+        <span [class]="item.icon"></span>
+        <span class="ml-2">{{ item.label }}</span>
+      </a>
+    </ng-template>
+    <ng-template>
+      <div class="p-menuitem-link">
+        <span [class]="item.icon"></span>
+        <span class="ml-2">{{ item.label }}</span>
+        <span class="pi pi-fw pi-angle-down ml-2"></span>
+      </div>
+    </ng-template>
+  </ng-template>
+</p-menubar>
+
+@for (articleParent of articles; track $index){
+  @if(articleParent.isPublished){
+  <div [routerLink]="['/article', articleParent.id]">
+    <app-article-solo [article]="articleParent"></app-article-solo>
+  </div>
+  }}
