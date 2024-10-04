@@ -1,6 +1,6 @@
 @for (articleParent of articles; track $index){
 @if(articleParent.isPublished){
 <div [routerLink]="['/article', articleParent.id]">
-  <app-article-solo [article]="articleParent"></app-article-solo>
+  <app-article-solo [article]="articleParent" (likeEvent)="handleLike($event)"></app-article-solo>
 </div>
 }}
